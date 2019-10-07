@@ -1,3 +1,5 @@
+#Bikeshare Project
+
 import time
 import pandas as pd
 import numpy as np
@@ -336,7 +338,7 @@ def user_stats(df,city):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
+#function to print data
 def show_data(df):
     """ Display the data and test if there are user errors """
     df=df.drop(columns=['Start', 'End','duration','Together','hour','month'])
@@ -372,7 +374,7 @@ def show_data(df):
 
 
 
-
+# main Function
 def main():
         city, month, day = get_filters()
         df = load_data(city, month, day)
