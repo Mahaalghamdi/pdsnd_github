@@ -173,32 +173,32 @@ def time_stats(df,city,month,day):
     if (month == 'all'):
         print('What is the most popular month of travling ?\n')
         df['month'] = df['Start Time'].dt.month
-        popular_month = df['month'].mode()[0]
+        common_month = df['month'].mode()[0]
         count_month = df['month'].value_counts().max()
         months = ['january', 'february', 'march', 'april', 'may', 'june']
-        popular_month = months[popular_month - 1]
-        print('- The most common month of travling is : {} \nCounts : {}'.format(popular_month.title(),count_month))
+        common_month = months[common_month - 1]
+        print('- The most common month of travling is : {} \nCounts : {}'.format(common_month.title(),count_month))
 
     # display the most common day of week
     if (day == 'all'):
         print('\nWhat is the most popular day of travling ?\n')
         df['day'] = df['Start Time'].dt.dayofweek
-        popular_day = df['day'].mode()[0]
+        common_day = df['day'].mode()[0]
         count_day = df['day'].value_counts().max()
         days=['monday','tuesday','wednesday','thursday','friday','saturday','sunday']
-        popular_day = days[popular_day]
-        print('- The most common day of travling is : {} \nCounts : {}'.format(popular_day.title(),count_day))
+        common_day = days[common_day]
+        print('- The most common day of travling is : {} \nCounts : {}'.format(common_day.title(),count_day))
 
 
     # display the most common start hour
     print('\nWhat is the most popular hour of travling ?\n')
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['hour'] = df['Start Time'].dt.hour
-    popular_hour = df['hour'].mode()[0]
+    common_hour = df['hour'].mode()[0]
     count_hour = df['hour'].value_counts().max()
-    hour = " {} AM ".format(popular_hour)
-    #if popular_hour > 12:
-    #    hour= " {} PM ".format(popular_hour - 12)
+    hour = " {} AM ".format(common_hour)
+    if popular_hour > 12:
+       hour= " {} PM ".format(popular_hour - 12)
     print('- The most common hour of travling : {} \nCounts : {}\n'.format(hour,count_hour))
 
 
