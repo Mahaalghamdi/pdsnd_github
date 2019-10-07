@@ -41,7 +41,6 @@ def day_filter():
         except KeyboardInterrupt:
             print('There is no input taken ! ')
 
-
 def get_filters():
 
     """
@@ -98,18 +97,10 @@ def get_filters():
         except KeyboardInterrupt:
             print('There is no input taken ! ')
 
-
     print('-'*40)
     return city, month, day
 
-
-
-
-
-
-
 def load_data(city, month, day):
-
 
     """
     Loads data for the specified city and filters by month and day if applicable.
@@ -124,7 +115,6 @@ def load_data(city, month, day):
 
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
-
 
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
@@ -149,14 +139,9 @@ def load_data(city, month, day):
         day = days[day]
         df = df[df['day_of_week'] == day.title()]
 
-
     return df
 
-
-
-
 def time_stats(df,city,month,day):
-
 
     """Displays statistics on the most frequent times of travel.
 
@@ -201,8 +186,6 @@ def time_stats(df,city,month,day):
        hour= " {} PM ".format(popular_hour - 12)
     print('- The most common hour of travling : {} \nCounts : {}\n'.format(hour,count_hour))
 
-
-
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -233,11 +216,8 @@ def station_stats(df):
     count_both = df['Together'].value_counts().max()
     print('- The most frequent combination of start station and end station trip are: \n\nStart Station :  {} \nCounts : {}\n'.format(common_start_end , count_both))
 
-
-
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
 
 
 def trip_duration_stats(df):
@@ -266,7 +246,6 @@ def trip_duration_stats(df):
     difference = timedelta( days = int(dayE) , hours = int(hourE) , minutes = int(minE) , seconds=int(secE)) - timedelta(days = int(dayS) , hours = int(hourS) , minutes = int(minS) , seconds=int(secS))
     print('- The duration total time is : {}\n'.format(difference))
 
-
     # display mean travel time
     print('What is the average travel duration ?\n')
     df['Start'] = pd.to_datetime(df['Start Time'])
@@ -290,7 +269,6 @@ def trip_duration_stats(df):
         days='0 days'
         print('- The duration average time is : {} {}\n'.format(days,difference))
 
-
     # display longest travel Duration
     print('What is the longest travel duration ?\n')
     start_day=df['Start'].dt.day
@@ -299,13 +277,8 @@ def trip_duration_stats(df):
     df['duration']= end_day - start_day
     print('- The longest travel duration took : {} days\n'.format(df['duration'].max()))
 
-
-
-
-
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
 
 def user_stats(df,city):
     """Displays statistics on bikeshare users."""
@@ -318,8 +291,6 @@ def user_stats(df,city):
     user_counts = df['User Type'].value_counts()
     print(user_counts)
 
-
-
     # Display counts of gender
     if (city.lower() == 'chicago') or (city.lower() == 'new york city'):
         print('\nWhat is the breakdown of gender ?\n')
@@ -331,7 +302,6 @@ def user_stats(df,city):
         print('- The oldest year of birth :      {}'.format(df['Birth Year'].min()))
         print('- The youngest year of birth :    {}'.format(df['Birth Year'].max()))
         print('- The most common year of birth : {}'.format(df['Birth Year'].mode()[0]))
-
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -368,11 +338,6 @@ def show_data(df):
         except KeyboardInterrupt:
             print('There is no input taken ! ')
 
-
-
-
-
-
 def main():
         city, month, day = get_filters()
         df = load_data(city, month, day)
@@ -396,7 +361,6 @@ def main():
                 print('Invalid Input ! You have to choose either yes or no ')
             except KeyboardInterrupt:
                 print('There is no input taken ! ')
-
 
 if __name__ == "__main__":
 
