@@ -15,3 +15,17 @@ washington.csv
 
 ### Credits
 https://github.com/udacity/course-collaboration-travel-plans
+
+### Refrences :
+
+#Datetime properties :
+https://pandas.pydata.org/pandas-docs/stable/reference/series.html#api-series-dt
+
+#DataFrame.to_dict :
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_dict.html
+
+#Raise Exception :
+https://geek-university.com/python/raise-exception/
+
+#Built-in Exception :
+https://docs.python.org/2/library/exceptions.html
